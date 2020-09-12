@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  attr_accessor :password
-  attr_accessible :password
   has_secure_password
   has_many :topics
   has_many :posts
