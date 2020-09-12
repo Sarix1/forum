@@ -1,0 +1,17 @@
+<strong>Showing All Users</strong>
+
+<% @users.each do |user| %>
+  <hr>
+  
+  <p>
+    Name: <%= user.name %>
+  </p>
+
+  <p>
+    E-mail: <%= user.email %>
+  </p>
+
+  <p>
+    Title: <%= user.title %>
+  </p>
+<% end %>
