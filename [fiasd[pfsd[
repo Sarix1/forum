@@ -1,0 +1,47 @@
+[33mcommit d4b96af34e79e84aaecabd931cbf221a89aade11[m[33m ([m[1;36mHEAD -> [m[1;32mimplementation[m[33m)[m
+Author: Sarix1 <sari.katariina.jokinen@protonmail.com>
+Date:   Sat Sep 12 22:54:16 2020 +0300
+
+    Add basic login
+
+[33mcommit 346e52dfaee2b41d76353bd2f1fc693c3d17c5b4[m
+Author: Sarix1 <sari.katariina.jokinen@protonmail.com>
+Date:   Sat Sep 12 21:31:31 2020 +0300
+
+    Remove welcome controller, add sessions model & controller
+
+[33mcommit 273b43e29bab479a04f4bef31babde833a3c5b6e[m[33m ([m[1;31morigin/implementation[m[33m)[m
+Author: Sari Jokinen <69091357+Sarix1@users.noreply.github.com>
+Date:   Sat Sep 12 20:58:10 2020 +0300
+
+    Update README.md
+
+[33mcommit 5f9ab6270cc4941be5cbd176a741de742865324b[m
+Author: Sarix1 <sari.katariina.jokinen@protonmail.com>
+Date:   Sat Sep 12 20:56:54 2020 +0300
+
+    Implement controller and views for users
+
+[33mcommit 627bac5bd98f29ed514bf6e8af536d251cebf05b[m
+Author: Sarix1 <sari.katariina.jokinen@protonmail.com>
+Date:   Fri Sep 11 20:32:01 2020 +0300
+
+    Add last post dates to topic and board
+
+[33mcommit fd2872f6f24e404262e52186a857e89719673343[m
+Author: Sarix1 <sari.katariina.jokinen@protonmail.com>
+Date:   Fri Sep 11 20:15:56 2020 +0300
+
+    Add various models and migrations
+
+[33mcommit d819fe67ef34e67f1c4bf58bfff52845ccb59785[m
+Author: Sarix1 <sari.katariina.jokinen@protonmail.com>
+Date:   Fri Sep 11 08:38:21 2020 +0300
+
+    Add MVC for posts
+
+[33mcommit 89ec7add4fc8246146518472fcec039fdbaded34[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Sarix1 <sari.katariina.jokinen@protonmail.com>
+Date:   Wed Sep 9 20:54:24 2020 +0300
+
+    First commit

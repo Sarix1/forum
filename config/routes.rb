@@ -1,7 +1,6 @@
-Rails.application.routes.draw do  
-  resources :users
+Rails.application.routes.draw do
+  get 'welcome/index'
+  root 'welcome#index'
   
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  get 'welcome', to: 'sessions#welcome'
+  resources :users
 end
