@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.title = "Newcomer"
     if @user.save
-      redirect_to @user
+      redirect_to user_path(@user), notice: 'Sign up successful'
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @user
+      redirect_to user_path(@user), notice: 'Used updated'
     else
       render 'edit'
     end
@@ -43,6 +43,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :title, :password_digest)
+      params.require(:user).permit(:name, :email, :title, :password)
     end
 end
