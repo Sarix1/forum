@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_173115) do
+ActiveRecord::Schema.define(version: 2020_09_15_101143) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_09_11_173115) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "last_post_date"
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_boards_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -87,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_173115) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "email"
     t.string "title"
     t.string "password_digest"
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_173115) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "boards", "categories"
   add_foreign_key "inboxes", "users"
   add_foreign_key "messages", "users", column: "recipient_id"
   add_foreign_key "messages", "users", column: "sender_id"

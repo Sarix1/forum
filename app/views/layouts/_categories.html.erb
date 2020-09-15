@@ -1,0 +1,43 @@
+<% @categories.sort_by(&:order).each do |cat| %>
+  <table width="100%" border="8" cellpadding="8" margin="0" cellspacing="0" bgcolor="#0055CC">
+    <tr bgcolor="#008888">
+      <th align="left" width="70%">
+        <%= cat.title %>
+      </th>
+      <th align="left" width="10%">
+        <p>Topics / Posts</p>
+      </th>
+      <th align="left" width="20%">
+        <p>Last Post</p>
+      </th>
+    </tr>
+    <% cat.boards.sort_by(&:order).each do |board| %>
+      <tr>
+        <td>
+          <p>
+            <strong><%= board.title %></strong>
+            <br>
+            <%= board.description %>
+          <p>
+        </td>
+        <td>
+          <p>
+            Topics: XXX
+            <br>
+            Posts: XXX
+          </p>
+        </td>
+        <td>
+          <p>
+            Topic name
+            <br>
+            User name
+            <br>
+            Post date
+          </p>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+<% end %>

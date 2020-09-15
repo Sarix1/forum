@@ -1,0 +1,19 @@
+<table border="8" cellpadding="8" bgcolor="#009999">
+  <tr>
+  <% if true %>
+    <td>
+      <%= link_to 'Register Account', 'index' %>
+    </td>
+    <td>
+      <%= link_to 'Log In', 'index' %>
+    </td>
+  <% else %>
+    <td>
+      <p>Logged in as:</p><%= link_to 'Username', 'index' %>
+    </td>
+    <td>
+      <%= link_to 'Log Out', 'index' %>
+    </td>
+  <% end %>
+  </tr>
+</table>
