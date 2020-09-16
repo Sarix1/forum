@@ -1,0 +1,65 @@
+<% @categories.sort_by(&:order).each do |cat| %>
+  <table
+    width="100%"
+    border="8"
+    cellpadding="8"
+    margin="0"
+    cellspacing="0"
+    bgcolor="#0044BB">
+
+    <tr bgcolor="#008888">
+      <th align="left">
+        <%= cat.title %>
+      </th>
+      <th align="left" width="15%">
+        Topics / Posts
+      </th>
+      <th align="left" width="20%">
+        Last Post
+      </th>
+    </tr>
+
+    <% i = 0 %>
+    <% cat.boards.sort_by(&:order).each do |board| %>
+      <% if i % 2 == 1 %>
+        <tr bgcolor="#0044BB">
+      <% else %>
+        <tr bgcolor="#000099">
+      <% end %>
+      <% i += 1 %>
+
+        <td>
+          <strong>
+            <%= link_to board.title, board_path(board.id) %>
+          </strong>
+          <br>
+          <%= board.description %>
+        </td>
+
+        <td>
+          Topics: <%= board.topics.length %>
+          <br>
+          Posts: <%= board.posts.length %>
+        </td>
+
+        <td>
+          <% last_post = board.posts.last %>
+          <% if last_post != nil %>
+            <%= last_post.title %>
+            <br>
+            <%= User.find_by(id: last_post.user_id).name %>
+            <br>
+            last_post.created_at
+
+          <% else %>
+            No posts
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <% unless cat == @categories.last %>
+    <br>
+  <% end %>
+<% end %>
