@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'categories/index'
-  get 'boards/show'
-  get 'home/index'
   root 'home#index'
+  get '/boards/:id', to: 'boards#show', as: :board
 end

@@ -9,7 +9,21 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body bgcolor="#000066" text="#00FFFF" style="font-family:verdana">
+  <body
+    text="#00FFFF"
+    bgcolor="#000066"
+    style="
+      margin-top: 1em;
+      margin-left: 1em;
+      margin-right: 1em;
+      padding-left: 8%;
+      padding-right: 8%;
+      font-family:verdana;">
+
+    <%= render 'layouts/header' %>
+    <br>
     <%= yield %>
+    <br>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

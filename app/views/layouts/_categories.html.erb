@@ -1,43 +1,39 @@
 <% @categories.sort_by(&:order).each do |cat| %>
-  <table width="100%" border="8" cellpadding="8" margin="0" cellspacing="0" bgcolor="#0055CC">
+  <table width="100%" border="8" cellpadding="8" margin="0" cellspacing="0" bgcolor="#0044BB">
     <tr bgcolor="#008888">
       <th align="left" width="70%">
         <%= cat.title %>
       </th>
       <th align="left" width="10%">
-        <p>Topics / Posts</p>
+        Topics / Posts
       </th>
       <th align="left" width="20%">
-        <p>Last Post</p>
+        Last Post
       </th>
     </tr>
     <% cat.boards.sort_by(&:order).each do |board| %>
       <tr>
         <td>
-          <p>
-            <strong><%= board.title %></strong>
-            <br>
-            <%= board.description %>
-          <p>
+          <strong><%= link_to board.title, board_path(board.id) %></strong>
+          <br>
+          <%= board.description %>
         </td>
         <td>
-          <p>
-            Topics: XXX
-            <br>
-            Posts: XXX
-          </p>
+          Topics: XXX
+          <br>
+          Posts: XXX
         </td>
         <td>
-          <p>
-            Topic name
-            <br>
-            User name
-            <br>
-            Post date
-          </p>
+          Topic name
+          <br>
+          User name
+          <br>
+          Post date
         </td>
       </tr>
     <% end %>
   </table>
-  <br>
+  <% unless cat == @categories.last %>
+    <br>
+  <% end %>
 <% end %>
