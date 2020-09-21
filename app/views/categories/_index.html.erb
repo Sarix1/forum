@@ -1,56 +1,38 @@
 <% @categories.sort_by(&:order).each do |cat| %>
-  <table
-    width="100%"
-    border="8"
-    cellpadding="8"
-    margin="0"
-    cellspacing="0"
-    bgcolor="#0044BB">
-
-    <tr bgcolor="#008888">
-      <th align="left">
+  <table class="index">
+    <tr>
+      <th>
         <%= cat.title %>
       </th>
-      <th align="left" width="15%">
+      <th width="150px">
         Topics / Posts
       </th>
-      <th align="left" width="20%">
+      <th width="30%">
         Last Post
       </th>
     </tr>
 
-    <% i = 0 %>
     <% cat.boards.sort_by(&:order).each do |board| %>
-      <% if i % 2 == 1 %>
-        <tr bgcolor="#0044BB">
-      <% else %>
-        <tr bgcolor="#000099">
-      <% end %>
-      <% i += 1 %>
-
+      <tr>
         <td>
-          <strong>
-            <%= link_to board.title, board_path(board.id) %>
-          </strong>
+          <%= link_to board.title, board_path(board.id) %>
           <br>
-          <%= board.description %>
+          <span style="font-size:0.8em;"><%= board.description %></span>
         </td>
 
-        <td>
+        <td style="font-size:0.8em;">
           Topics: <%= board.topics.length %>
           <br>
           Posts: <%= board.posts.length %>
         </td>
 
-        <td>
+        <td style="font-size:0.8em;">
           <% last_post = board.posts.last %>
           <% if last_post != nil %>
-            <%= last_post.title %>
+            <%= link_to last_post.title, topic_path(last_post.topic) %>
+            by <%= link_to last_post.user.name, boards_path %>
             <br>
-            <%= User.find_by(id: last_post.user_id).name %>
-            <br>
-            last_post.created_at
-
+            <%= last_post.created_at %>
           <% else %>
             No posts
           <% end %>

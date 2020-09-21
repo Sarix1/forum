@@ -1,5 +1,53 @@
-<h2><%= @board.title %></h2>
+<h3>
+  <%= link_to $forum_name, boards_path %>
+  /
+  <%= link_to @board.title, board_path(@board) %>
+</h3>
 
-<% @board.topics.sort_by(&:last_post_date).each do |topic| %>
-  <%= topic.title %><br>
-<% end %>
+<table class="index">
+  <tr>
+    <th>
+      Title
+    </th>
+    <th width="60px">
+      Replies
+    </th>
+    <th width="25%">
+      Last Post
+    </th>
+  </tr>
+
+  <% i = 0 %>
+  <% @board.topics.sort_by(&:last_post_date).each do |topic| %>
+    <% if (i += 1) % 2 == 0 %>
+      <% bg = "#0044BB" %>
+    <% else %>
+      <% bg = "#000099" %>
+    <% end %>
+
+    <tr>
+      <td>
+        <%= link_to topic.title, topic_path(topic.id) %>
+        <br>
+        <span style="font-size:0.8em;">by <%= link_to topic.user.name, boards_path %>, <%= topic.created_at %></span>
+      </td>
+
+      <td style="font-size:0.8em;">
+        <%= (topic.posts.length - 1) %>
+      </td>
+
+      <td style="font-size:0.8em;">
+        <% last_post = topic.posts.last %>
+        <% if last_post != topic.posts.first %>
+          by <%= link_to last_post.user.name, boards_path %>
+          <br>
+          <%= last_post.created_at %>
+        <% else %>
+          No replies
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render 'layouts/new_topic' %>

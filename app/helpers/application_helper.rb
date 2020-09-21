@@ -2,9 +2,7 @@ module ApplicationHelper
   def all_topics
     @topic_count = 0
     Category.all.each do |cat|
-      cat.boards.each do |board|
-        @topic_count =+ board.topics.length
-      end
+      @topic_count += cat.topics.length
     end
 
     @topic_count
@@ -13,9 +11,7 @@ module ApplicationHelper
   def all_posts
     @post_count = 0
     Category.all.each do |cat|
-      cat.boards.each do |board|
-        @post_count =+ cat.posts.length
-      end
+      @post_count += cat.posts.length
     end
 
     @post_count

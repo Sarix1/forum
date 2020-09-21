@@ -1,10 +1,21 @@
-<table width="100%" margin="0" padding="0" cellspacing="0">
-<tr>
-  <td>
-    <h1>Rails Forum</h1>
-  </td>
-  <td align="right">
-    <%= render 'layouts/menu' %>
-  </td>
-</tr>
+<table class="menu" style="float: right;">
+  <tr>
+    <% if true %>
+      <th>
+        <%= link_to 'Register', root_path %>
+      </th>
+      <th>
+        <%= link_to 'Log In', root_path %>
+      </th>
+    <% else %>
+      <th>
+        Logged in as: <%= link_to 'Username', root_path %>
+      </th>
+      <th>
+        <%= link_to 'Log Out', root_path %>
+      </th>
+    <% end %>
+  </tr>
 </table>
+
+<span class="title"><%= $forum_name %></span>

@@ -1,0 +1,121 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$d-blue: #000066;
+$blue: #000099;
+$l-blue: #0044bb;
+$d-teal: #007777;
+$teal: #00cccc;
+$l-teal: #00ffff;
+$grey: #888888;
+
+$main-bg: $d-blue;
+$main-text: $l-teal;
+$header-bg: $d-teal;
+$header-text: $teal;
+$board-bg-a: $blue;
+$board-bg-b: $l-blue;
+$table-a: $l-teal;
+$table-b: $teal;
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: verdana;
+  font-size: 16px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  min-width: 500px;
+  max-width: 1000px;
+  color: $main-text;
+  background: linear-gradient($d-blue, $l-blue);
+}
+
+table {
+  border: 8px outset $table-a;
+  background-color: $header-text;
+
+  td, th {
+    padding: 0.5em;
+  }
+}
+
+a {
+  color: yellow;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    color: orangered;
+  }
+}
+
+.menu {
+  border-spacing: 0px;
+  color: $header-text;
+  background-color: $header-bg;
+
+  td, th {
+    border: 4px inset;
+  }
+}
+
+.title {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.index {
+  width: 100%;
+  border-spacing: 1px;
+
+  th {
+    text-align: left;
+    color: $header-text;
+    background-color: $header-bg;
+  }
+
+  tr:nth-child(even) {
+    background-color: $board-bg-a;
+  }
+
+  tr:nth-child(odd) {
+    background-color: $board-bg-b;
+  }
+}
+
+.topic {
+  width: 100%;
+  border-spacing: 1px;
+
+  th {
+    text-align: left;
+    color: $header-text;
+    background-color: $header-bg;
+  }
+
+  tr:nth-child(4n-1), tr:nth-child(4n-2) {
+    background-color: $board-bg-a;
+  }
+
+  tr:nth-child(4n-3), tr:nth-child(4n-4) {
+    background-color: $board-bg-b;
+  }
+}

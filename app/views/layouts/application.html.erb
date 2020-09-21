@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Forum</title>
+    <title><%= $forum_name %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,21 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body
-    text="#00FFFF"
-    bgcolor="#000066"
-    style="
-      margin-top: 1em;
-      margin-left: 1em;
-      margin-right: 1em;
-      padding-left: 8%;
-      padding-right: 8%;
-      font-family:verdana;">
-
+  <body>
     <%= render 'layouts/header' %>
-    
     <%= yield %>
-
     <%= render 'layouts/footer' %>
   </body>
 </html>
