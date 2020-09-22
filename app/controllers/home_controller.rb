@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @categories = Category.all
+    redirect_to boards_path
   end
 end

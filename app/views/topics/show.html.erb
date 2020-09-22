@@ -1,14 +1,14 @@
-<h3>
+<p>
   <%= link_to $forum_name, boards_path %>
   /
   <%= link_to @topic.board.title, board_path(@topic.board) %>
   /
   <%= link_to @topic.title, topic_path(@topic) %>
-</h3>
+</p>
 
 <table class="topic">
   <tr>
-    <th style="min-width:150px;">
+    <th>
       User
     </th>
     <th>
@@ -19,14 +19,13 @@
   <% i = 0 %>
   <% @topic.posts.all.each do |post| %>
     <tr id="<%= i += 1 %>" style="vertical-align: baseline;">
-      <td>
+      <td style="width:20%; min-width:128px;">
         <%= link_to post.user.name, boards_path %>
         <br>
-        <span style="font-size:0.8em;"><%= post.user.title %></span>
+        <span class="subtitle"><%= post.user.title %></span>
         <br>
-        Avatar
+        <%= image_tag("avatar.png") %>
       </td>
-
       <td>
         <%= link_to topic_path, id: i do %>
           <%= post.title %>
@@ -38,8 +37,8 @@
     </tr>
 
     <tr>
-      <td style="font-size:0.8em;">
-        <%= post.created_at %>
+      <td class="subtitle">
+        <%= timestamp(post.created_at) %>
       </td>
       <td>
         <span style="float:right;"><%= link_to 'Reply', boards_path %></span>
@@ -47,3 +46,5 @@
     </tr>
   <% end %>
 </table>
+
+<%= render 'layouts/add_reply' %>

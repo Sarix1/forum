@@ -1,3 +1,5 @@
+<div style="height:40px"></div>
+
 <% @categories.sort_by(&:order).each do |cat| %>
   <table class="index">
     <tr>
@@ -13,26 +15,24 @@
     </tr>
 
     <% cat.boards.sort_by(&:order).each do |board| %>
-      <tr>
+      <tr style="vertical-align:baseline;">
         <td>
           <%= link_to board.title, board_path(board.id) %>
           <br>
-          <span style="font-size:0.8em;"><%= board.description %></span>
+          <span class="subtitle"><%= board.description %></span>
         </td>
-
-        <td style="font-size:0.8em;">
+        <td class="subtitle">
           Topics: <%= board.topics.length %>
           <br>
           Posts: <%= board.posts.length %>
         </td>
-
-        <td style="font-size:0.8em;">
+        <td class="subtitle">
           <% last_post = board.posts.last %>
           <% if last_post != nil %>
             <%= link_to last_post.title, topic_path(last_post.topic) %>
             by <%= link_to last_post.user.name, boards_path %>
             <br>
-            <%= last_post.created_at %>
+            <%= timestamp(last_post.created_at) %>
           <% else %>
             No posts
           <% end %>

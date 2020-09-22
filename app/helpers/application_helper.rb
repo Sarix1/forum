@@ -16,4 +16,8 @@ module ApplicationHelper
 
     @post_count
   end
+
+  def timestamp(t)
+    t.strftime("%d %b %Y %H:%M")
+  end
 end
