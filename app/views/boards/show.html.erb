@@ -18,7 +18,8 @@
   </tr>
 
   <% i = 0 %>
-  <% @board.topics.sort_by(&:last_post_date).each do |topic| %>
+  <% # change created_at to last post date %>
+  <% @board.topics.order('created_at DESC').each do |topic| %>
     <% if (i += 1) % 2 == 0 %>
       <% bg = "#0044BB" %>
     <% else %>
@@ -29,7 +30,7 @@
       <td>
         <%= link_to topic.title, topic_path(topic.id) %>
         <br>
-        <span class="subtitle">by <%= link_to topic.user.name, boards_path %>, <%= timestamp(topic.created_at) %></span>
+        <span class="subtitle">by <%= link_to topic.user.name, user_path(topic.user) %>, <%= timestamp(topic.created_at) %></span>
       </td>
       <td class="subtitle">
         <%= (topic.posts.length - 1) %>
@@ -37,7 +38,7 @@
       <td class="subtitle">
         <% last_post = topic.posts.last %>
         <% if last_post != topic.posts.first %>
-          by <%= link_to last_post.user.name, boards_path %>
+          by <%= link_to last_post.user.name, user_path(last_post.user) %>
           <br>
           <%= timestamp(last_post.created_at) %>
         <% else %>

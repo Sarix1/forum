@@ -1,0 +1,13 @@
+<h2>User List</h2>
+
+<% @users.each do |user| %>
+  <%= link_to user.name, user_path(user) %>
+  <br>
+  <%= user.title %>
+  <br>
+  <%= user.email %>
+  <br>
+  <% unless user == @users.last %>
+    <hr>
+  <% end %>
+<% end %>

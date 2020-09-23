@@ -30,7 +30,7 @@
           <% last_post = board.posts.last %>
           <% if last_post != nil %>
             <%= link_to last_post.title, topic_path(last_post.topic) %>
-            by <%= link_to last_post.user.name, boards_path %>
+            by <%= link_to last_post.user.name, user_path(last_post.user) %>
             <br>
             <%= timestamp(last_post.created_at) %>
           <% else %>

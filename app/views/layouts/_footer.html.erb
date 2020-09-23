@@ -1,14 +1,21 @@
+<div style="min-height:20px"></div>
+<div>
+  <%= link_to 'Forum Index', boards_path %>
+  |
+  <%= link_to 'User List', users_path %>
+  | Terms of Use | Privacy Policy | Contact
+</div>
 <br>
 <strong>Currently Active Users</strong>
-<p>
+<div>
   (User1, User2...)
-</p>
-
+</div>
+<br>
 <strong>Forum Statistics</strong>
-<p>
+<div>
   Topics: <%= all_topics %>
   <br>
   Posts: <%= all_posts %>
   <br>
   Users: <%= User.all.length %>
-</p>
+</div>

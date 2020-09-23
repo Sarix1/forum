@@ -1,0 +1,12 @@
+<%= form_for @topic do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <br>
+  <%= form.label :board_id %>
+  <%= form.text_field :board_id %>
+  <br>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id %>
+  <br>
+  <%= form.submit %>
+<% end %>

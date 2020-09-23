@@ -1,11 +1,11 @@
 <div style="float:right;">
   <% if true %>
-    <%= link_to 'Register', root_path %>
+    <%= link_to 'Register', new_user_path %>
     |
     <%= link_to 'Log In', root_path %>
   <% else %>
     Logged in as:
-    <%= link_to 'Username', root_path %>
+    <%= link_to 'Username', user_path(@user) %>
     |
     <%= link_to 'Log Out', root_path %>
   <% end %>
