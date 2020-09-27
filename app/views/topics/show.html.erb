@@ -27,7 +27,7 @@
         <%= image_tag("avatar.png") %>
       </td>
       <td>
-        <%= link_to topic_path, id: i do %>
+        <%= link_to topic_path(anchor: i), id: i do %>
           <%= post.title %>
           <span style="float:right;">#<%= i %></span>
         <% end %>

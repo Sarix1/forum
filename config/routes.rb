@@ -11,8 +11,4 @@ Rails.application.routes.draw do
   resources :boards
   resources :topics
   resources :posts
-  
-  #resources :topics do
-  #  resources :posts
-  #end
 end

@@ -1,2 +1,14 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= form_for @post do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <br>
+  <%= form.label :content %>
+  <%= form.text_area :content, size: '50x10' %>
+
+  <%= form.hidden_field :topic_id, value: params[:topic] %>
+  <br>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id %>
+  <br>
+  <%= form.submit %>
+<% end %>

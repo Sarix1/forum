@@ -19,7 +19,7 @@
 
   <% i = 0 %>
   <% # change created_at to last post date %>
-  <% @board.topics.order('created_at DESC').each do |topic| %>
+  <% @board.topics.order('last_post_date DESC').each do |topic| %>
     <% if (i += 1) % 2 == 0 %>
       <% bg = "#0044BB" %>
     <% else %>

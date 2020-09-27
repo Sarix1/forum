@@ -15,10 +15,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to post_path(@post)
+      @post.topic.last_post_date = @post.created_at
+      @post.topic.save
+
+      redirect_to topic_path(@post.topic)
     else
       # failure
-      render 'new'
+      # known issue - doesn't keep old params!
+      redirect_to new_post_path, topic: params[:topic]
     end
   end
 
