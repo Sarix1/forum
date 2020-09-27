@@ -9,20 +9,22 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
-    @first_post = Post.new
-    @first_post.topic = @topic
+    @topic.content = String.new
+
+    @post = Post.new
+    @post.topic = @topic
   end
 
   def create
     @topic = Topic.new(topic_params)
-    @first_post = Post.new
-    @first_post.title = @topic.title
-    @first_post.user = @topic.user
-    @first_post.content = params[:first_post][:content]
+    @post = Post.new
+    @post.title = @topic.title
+    @post.user = @topic.user
+    @post.content = @topic.content
 
     if @topic.save
-      @first_post.topic_id = @topic.id
-      if @first_post.save
+      @post.topic_id = @topic.id
+      if @post.save
         redirect_to topic_path(@topic)
       else
         @topic.destroy
@@ -37,6 +39,6 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit! #(:title, :board_id, :user_id, :first_post)
+      params.require(:topic).permit(:title, :board_id, :user_id, :content)
     end
 end

@@ -9,9 +9,8 @@
   <%= form.label :user_id %>
   <%= form.text_field :user_id %>
   <br>
-  <%= form.fields_for @first_post do |first_post| %>
-    <%= first_post.text_field :content %>
-  <% end %>
+  <%= form.label :content %>
+  <%= form.text_field :content %>
   <br>
   <%= form.submit %>
 <% end %>
