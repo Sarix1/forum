@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_101143) do
+ActiveRecord::Schema.define(version: 2020_09_27_190237) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_101143) do
     t.integer "user_id", null: false
     t.integer "board_id", null: false
     t.datetime "last_post_date"
+    t.integer "views"
     t.index ["board_id"], name: "index_topics_on_board_id"
     t.index ["user_id"], name: "index_topics_on_user_id"
   end

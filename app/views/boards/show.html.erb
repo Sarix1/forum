@@ -7,34 +7,32 @@
 <table class="index">
   <tr>
     <th>
-      Title
+      Topic
     </th>
-    <th width="60px">
-      Replies
+
+    <th width="150px">
+      Replies / Views
     </th>
-    <th width="25%">
+
+    <th width="30%">
       Last Post
     </th>
   </tr>
 
-  <% i = 0 %>
-  <% # change created_at to last post date %>
   <% @board.topics.order('last_post_date DESC').each do |topic| %>
-    <% if (i += 1) % 2 == 0 %>
-      <% bg = "#0044BB" %>
-    <% else %>
-      <% bg = "#000099" %>
-    <% end %>
-
     <tr>
       <td>
         <%= link_to topic.title, topic_path(topic.id) %>
         <br>
         <span class="subtitle">by <%= link_to topic.user.name, user_path(topic.user) %>, <%= timestamp(topic.created_at) %></span>
       </td>
+
       <td class="subtitle">
-        <%= (topic.posts.length - 1) %>
+        Replies: <%= topic.posts.length - 1 %>
+        <br>
+        Views: <%= topic.views %>
       </td>
+      
       <td class="subtitle">
         <% last_post = topic.posts.last %>
         <% if last_post != topic.posts.first %>

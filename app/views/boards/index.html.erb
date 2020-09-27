@@ -6,9 +6,11 @@
       <th>
         <%= cat.title %>
       </th>
+
       <th width="150px">
         Topics / Posts
       </th>
+
       <th width="30%">
         Last Post
       </th>
@@ -21,11 +23,13 @@
           <br>
           <span class="subtitle"><%= board.description %></span>
         </td>
+
         <td class="subtitle">
           Topics: <%= board.topics.length %>
           <br>
           Posts: <%= board.posts.length %>
         </td>
+        
         <td class="subtitle">
           <% last_post = board.posts.last %>
           <% if last_post != nil %>

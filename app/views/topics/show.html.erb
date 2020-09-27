@@ -11,6 +11,7 @@
     <th>
       User
     </th>
+
     <th>
       Message
     </th>
@@ -26,6 +27,7 @@
         <br>
         <%= image_tag("avatar.png") %>
       </td>
+
       <td>
         <%= link_to topic_path(anchor: i), id: i do %>
           <%= post.title %>
@@ -40,6 +42,7 @@
       <td class="subtitle">
         <%= timestamp(post.created_at) %>
       </td>
+      
       <td>
         <span style="float:right;"><%= link_to 'Reply', boards_path %></span>
       </td>

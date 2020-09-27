@@ -1,9 +1,6 @@
-<%= params.inspect %>
-
 <%= form_for @topic do |form| %>
   <%= form.hidden_field :board_id, value: params[:board] %>
-
-  <%= form.label :user_id # make hidden later %>
+  <%= form.label :user_id %>
   <%= form.text_field :user_id %>
   <br>
   <%= form.label :title %>
