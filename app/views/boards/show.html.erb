@@ -1,0 +1,50 @@
+<p>
+  <%= link_to $forum_name, boards_path %>
+  /
+  <%= link_to @board.title, board_path(@board) %>
+</p>
+
+<table class="index">
+  <tr>
+    <th>
+      Topic
+    </th>
+
+    <th width="150px">
+      Replies / Views
+    </th>
+
+    <th width="30%">
+      Last Post
+    </th>
+  </tr>
+
+  <% @board.topics.order('last_post_date DESC').each do |topic| %>
+    <tr>
+      <td>
+        <%= link_to topic.title, topic_path(topic.id) %>
+        <br>
+        <span class="subtitle">by <%= link_to topic.user.name, user_path(topic.user) %>, <%= timestamp(topic.created_at) %></span>
+      </td>
+
+      <td class="subtitle">
+        Replies: <%= topic.posts.length - 1 %>
+        <br>
+        Views: <%= topic.views %>
+      </td>
+      
+      <td class="subtitle">
+        <% last_post = topic.posts.last %>
+        <% if last_post != topic.posts.first %>
+          by <%= link_to last_post.user.name, user_path(last_post.user) %>
+          <br>
+          <%= timestamp(last_post.created_at) %>
+        <% else %>
+          No replies
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render 'layouts/new_topic' %>

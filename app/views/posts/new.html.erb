@@ -1,0 +1,13 @@
+<%= form_for @post do |form| %>
+  <%= form.hidden_field :topic_id, value: params[:topic] %>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id %>
+  <br>
+  <%= form.label :title %>
+  <%= form.text_field :title, value: "Re: #{Topic.find(params[:topic]).title}" %>
+  <br>
+  <%= form.label :content %>
+  <%= form.text_area :content, size: '50x10' %>
+  <br>
+  <%= form.submit %>
+<% end %>

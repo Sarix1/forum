@@ -1,0 +1,21 @@
+<div style="min-height:20px"></div>
+<div>
+  <%= link_to 'Forum Index', boards_path %>
+  |
+  <%= link_to 'User List', users_path %>
+  | Information
+</div>
+<br>
+<strong>Currently Active Users</strong>
+<div>
+  (User1, User2...)
+</div>
+<br>
+<strong>Forum Statistics</strong>
+<div>
+  Topics: <%= all_topics %>
+  <br>
+  Posts: <%= all_posts %>
+  <br>
+  Users: <%= User.all.length %>
+</div>
